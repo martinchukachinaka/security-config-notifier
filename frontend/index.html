@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Service Config Notifier</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link href="https://fonts.googleapis.com/css?family=PT+Mono&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!--
+    <h1>First and foremost</h1>
+    <span class="shadow-host">
+      <a href="remita.net">
+        Follow @remita
+      </a>
+    </span>
+    -->
+    <main id="app" class="container mt-5">
+      <header>
+        <h1 style="margin-bottom: 0.5rem">{{ product }}</h1>
+        <span class="pl-5">&mdash; {{ description }}</span>
+      </header>
+      <article>
+        <section>
+          <div class="row">
+            <div class="col-sm-6">
+              <h2>Todos</h2>
+              <ol>
+                <li v-for="todo in todos">
+                  {{ todo.text }}
+                </li>
+              </ol>
+            </div>
+            <div class="col-sm-6">
+              <h2>Components</h2>
+              <ol>
+                <todo-item
+                  v-for="todo in todos"
+                  :todo="todo"
+                  :key="todo.id"
+                ></todo-item>
+              </ol>
+            </div>
+          </div>
+
+          <div class="row mt-3">
+            <div class="col-sm-6">
+              <h2>Models</h2>
+              <div class="alert alert-info">
+                {{ reversedMessage || "No message entered" }}
+              </div>
+              <input
+                v-model="message"
+                placeholder="Enter message"
+                class="form-control mb-2"
+              />
+              <button @click="reverseMessage" class="btn btn-primary">
+                Reverse Message
+              </button>
+            </div>
+            <div class="col-sm-6">
+              <h2>Activities</h2>
+            </div>
+          </div>
+        </section>
+      </article>
+      <footer>&copy; <time>2019</time></footer>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

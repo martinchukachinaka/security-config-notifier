@@ -3,10 +3,30 @@ Vue.component("todo-item", {
   props: ["todo"]
 });
 
+Vue.component('config-nav', {
+  template: `
+    <nav>
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Notifications</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Manage Configs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/index.html">
+            <i class="material-icons">home</i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  `
+})
+
 var app = new Vue({
   el: "#app",
   data: {
-    product: "Service Config Notifier",
+    product: "Config Nota",
     description: "Utility for notifying on configured meters",
     message: "One thing",
     todos: [
@@ -16,12 +36,13 @@ var app = new Vue({
       { id: 4, text: "four message" }
     ]
   },
-  computed:{
-    reversedMessage(){
+  computed: {
+    reversedMessage() {
       return this.message.split('').reverse().join('');
     }
   },
   methods: {
+    getYear() { return new Date().getFullYear(); },
     reverseMessage() {
       this.message = this.message
         .split("")
